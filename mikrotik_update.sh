@@ -134,6 +134,7 @@ done
 
 echo_date "Rebooting all MikroTik devices..."
 for MT in ${MT_LIST[@]}; do
+    echo_date "[$MT] Rebooting..."
     (ssh -o "StrictHostKeyChecking no" $MT_USER@$MT -i $MT_KEY ":execute {/system reboot}") &
 done
 
