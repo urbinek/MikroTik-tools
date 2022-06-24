@@ -2,6 +2,7 @@
 
 ## Requirements 
 Script auto-discovery is based on MikroTik neighbor feature. More info at wiki:
+
 <https://wiki.mikrotik.com/wiki/Manual:IP/Neighbor_discovery>
 
 To enable discovery run below command on all MikroTik devices:
@@ -10,6 +11,7 @@ To enable discovery run below command on all MikroTik devices:
 ```
 
 Authentication is based on RSA keys. Users and keys must be created beforehand:
+
 <https://wiki.mikrotik.com/wiki/Use_SSH_to_execute_commands_(public/private_key_login)>
 
 ## Help
