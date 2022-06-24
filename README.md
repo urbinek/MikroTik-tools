@@ -16,17 +16,17 @@ Authentication is based on RSA keys. Users and keys must be created beforehand:
 
 ### Required parameters:
 ```Bash
-    --mikrotik MIKROTIK_IP    It can be any MikroTik in network. Gateway is recomended. 
-    --user     SSH_USER       Admin user used to login via ssh to each MikroTik device.
-    --key      RSA_KEY        RSA key used to login via ssh to each MikroTik device.
+--mikrotik MIKROTIK_IP    It can be any MikroTik in network. Gateway is recomended. 
+--user     SSH_USER       Admin user used to login via ssh to each MikroTik device.
+--key      RSA_KEY        RSA key used to login via ssh to each MikroTik device.
 ```
 
 ### Optional parameters:
 ```Bash
-    --channel  development|long-term|stable|testing
-                            Update channel to be used by MikroTik. Default: stable
-    --reboot   yes|no         Reboot all MikroTik devices AFTER all updates are downloaded. Default:no
-    --help                    Display this message
+--channel  development|long-term|stable|testing
+                          Update channel to be used by MikroTik. Default: stable
+--reboot   yes|no         Reboot all MikroTik devices AFTER all updates are downloaded. Default:no
+--help                    Display this message
 ```
 
 ## Example 
