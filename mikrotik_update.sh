@@ -60,7 +60,7 @@ for ARGUMENT in "$@"; do
         '--channel' )
             MT_CHANNEL=${VALUE}
         ;; 
-        '--channel' )
+        '--reboot' )
             MT_REBOOT=${VALUE}
         ;;                                        
         '--help' )
@@ -98,9 +98,9 @@ if [ -z "$MT_CHANNEL" ]; then
     echo_date "[INFO] [$(basename $0)] '--channel' parameter is missing, using $MT_CHANNEL as update channel."
 fi
 
-if [ -z "$MT_CHANNEL" ]; then
-    MT_CHANNEL="stable"
-    echo_date "[INFO] [$(basename $0)] '--channel' parameter is missing, using $MT_CHANNEL as update channel."
+if [ -z "$MT_REBOOT" ]; then
+    MT_REBOOT="no"
+    echo_date "[INFO] [$(basename $0)] '--reboot' parameter is missing, using $MT_REBOOT as default."
 fi
 
 echo_date "[INFO] Geting neighbor list from $MT..."
@@ -132,11 +132,13 @@ for MT in ${MT_LIST[@]}; do
     fi
 done
 
-echo_date "Rebooting all MikroTik devices..."
-for MT in ${MT_LIST[@]}; do
-    echo_date "[$MT] Rebooting..."
-    (ssh -o "StrictHostKeyChecking no" $MT_USER@$MT -i $MT_KEY ":execute {/system reboot}") &
-done
+if [ $MT_REBOOT == "yes"]; then
+    echo_date "Rebooting all MikroTik devices..."
+    for MT in ${MT_LIST[@]}; do
+        echo_date "[$MT] Rebooting..."
+        (ssh -o "StrictHostKeyChecking no" $MT_USER@$MT -i $MT_KEY ":execute {/system reboot}") &
+    done
+fi
 
 echo_date ""
 echo_date "Done!"
