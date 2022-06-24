@@ -2,7 +2,7 @@
 
 ## Requirements 
 Script auto-discovery is based on MikroTik neighbor feature. More info at wiki:
-<https://wiki.mikrotik.com/wiki/Manual:IP/Neighbor_discovery?
+<https://wiki.mikrotik.com/wiki/Manual:IP/Neighbor_discovery>
 
 To enable discovery run below command on all MikroTik devices:
 ```MikroTik
